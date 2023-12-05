@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <h1>Dynamic Component Example</h1>
     <button @click="switchComponent">Toggle Component</button>
     <component :is="currentComponent"></component>
