@@ -2,7 +2,9 @@
   <div>
     <h1>Dynamic Component Example</h1>
     <button @click="switchComponent">Toggle Component</button>
-    <component :is="currentComponent"></component>
+    <keep-alive>
+      <component :is="currentComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
