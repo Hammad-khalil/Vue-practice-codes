@@ -1,26 +1,43 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <button @click="changemsg">Change text</button>
+  <div id="app">
+    <h1>Dynamic Component Example</h1>
+    <button @click="switchComponent">Toggle Component</button>
+    <component :is="currentComponent"></component>
+  </div>
 </template>
 
 <script>
+import Home from "./components/Home-comp.vue";
+import About from "./components/About-comp.vue";
+
 export default {
   data() {
     return {
-      msg: "Basic Vue Template",
+      currentComponent: "Home",
     };
   },
   methods: {
-    changemsg() {
-      this.msg = "Msg Changed !!!";
+    switchComponent() {
+      this.currentComponent =
+        this.currentComponent === "Home" ? "About" : "Home";
     },
+  },
+  components: {
+    Home,
+    About,
   },
 };
 </script>
 
 <style>
-h1 {
-  font-family: cursive;
-  color: teal;
+#app {
+  text-align: center;
+  margin-top: 60px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  cursor: pointer;
 }
 </style>
