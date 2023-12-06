@@ -1,45 +1,28 @@
 <template>
-  <div>
-    <h1>Dynamic Component Example</h1>
-    <button @click="switchComponent">Toggle Component</button>
-    <keep-alive>
-      <component :is="currentComponent"></component>
-    </keep-alive>
-  </div>
+  <h1 @click="changename">Hello {{ name }}</h1>
+  <Template food-name="This is Sended From App.vue">
+    <div>
+      <p>This Data is sended with Slot</p>
+    </div>
+  </Template>
 </template>
 
-<script>
-import Home from "./components/Home-comp.vue";
-import About from "./components/About-comp.vue";
 
+<script>
+import Template from "./components/template-comp";
 export default {
   data() {
     return {
-      currentComponent: "Home",
+      name: "Basic Vue Template",
     };
   },
   methods: {
-    switchComponent() {
-      this.currentComponent =
-        this.currentComponent === "Home" ? "About" : "Home";
+    changename() {
+      this.name = "Will Be Changed !!!";
     },
   },
   components: {
-    Home,
-    About,
+    Template,
   },
 };
 </script>
-
-<style>
-#app {
-  text-align: center;
-  margin-top: 60px;
-}
-
-button {
-  margin-top: 20px;
-  padding: 10px;
-  cursor: pointer;
-}
-</style>
