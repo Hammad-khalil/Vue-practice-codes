@@ -113,6 +113,9 @@
     <div>
       <button @click="savedetails">Save Data</button>
     </div>
+    <div>
+      <button @click="seeData">Click to see save data</button>
+    </div>
   </form>
 </template>
 
@@ -172,6 +175,17 @@ export default {
           referrer: this.referrer,
         }),
       });
+    },
+    seeData() {
+      fetch("https://vue-js-b05dd-default-rtdb.firebaseio.com/save.json")
+        .then(function (response) {
+          if (response.ok) {
+            return response.json();
+          }
+        })
+        .then(function (data) {
+          console.log(data);
+        });
     },
     validateInput() {
       if (this.userName === "") {
