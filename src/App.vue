@@ -111,7 +111,7 @@
       <label for="confirm-terms">Agree to terms of use?</label>
     </div>
     <div>
-      <button>Save Data</button>
+      <button @click="savedetails">Save Data</button>
     </div>
   </form>
 </template>
@@ -158,6 +158,20 @@ export default {
       console.log("Rating");
       console.log(this.rating);
       this.rating = null;
+    },
+    savedetails() {
+      fetch("https://vue-js-b05dd-default-rtdb.firebaseio.com/save.json", {
+        method: "Post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          userName: this.userName,
+          userAge: this.userAge,
+          referrer: this.referrer,
+        }),
+      });
     },
     validateInput() {
       if (this.userName === "") {
