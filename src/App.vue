@@ -178,12 +178,12 @@ export default {
     },
     seeData() {
       fetch("https://vue-js-b05dd-default-rtdb.firebaseio.com/save.json")
-        .then(function (response) {
+        .then((response) => {
           if (response.ok) {
             return response.json();
           }
         })
-        .then(function (data) {
+        .then((data) => {
           console.log(data);
         });
     },
