@@ -1,13 +1,8 @@
 <template>
-  <div>{{ name }}</div>
+  <router-view></router-view>
+  <router-link to="/src/components/Home-comp.vue" />
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      name: "Hello Router",
-    };
-  },
-};
+export default {};
 </script>
